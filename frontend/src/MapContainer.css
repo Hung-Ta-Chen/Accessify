@@ -1,0 +1,52 @@
+.map-container {
+  position: relative; /* This is crucial */
+  flex-grow: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.info-window-content {
+    width: 280px; /* Slightly wider for better layout */
+    min-height: 220px; /* Minimum height to accommodate content */
+    padding: 15px 15px 15px 15px; /* Adequate padding for internal content */
+    background-color: #ffffff; /* White background for clarity */
+    color: #333333; /* Dark grey text for better readability */
+    font-family: 'Roboto', sans-serif; /* Consistent font usage with Google Maps */
+    font-size: 14px; /* Optimal text size */
+    border-radius: 8px; /* Rounded corners for modern look */
+    box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28); /* Subtle shadow for depth */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .info-window-content > h3 {
+    margin: 10px 0 20px 0; /* Remove margin from top and add to bottom for spacing */
+    color: #1a73e8; /* Google blue for headings */
+    font-weight: bold;
+    font-size: 20px;
+  }
+  
+  .info-window-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px; /* Adjust space above the buttons */
+    width: 100%;
+  }
+  
+  .info-window-buttons button {
+    flex: 1; /* Buttons expand to fill available space */
+    margin: 0 10px; /* Space between buttons */
+    background-color: #4285F4; /* Google blue for buttons */
+    color: white; /* White text */
+    border: none; /* No borders */
+    border-radius: 4px; /* Rounded edges */
+    padding: 8px 0px; /* Padding for touch friendliness */
+    cursor: pointer; /* Cursor pointer to indicate clickable */
+    outline: none; /* Remove default focus outline */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+  }
+  
+  .info-window-buttons button:hover {
+    background-color: #357ae8; /* Slightly darker blue on hover */
+  }

@@ -1,0 +1,75 @@
+.search-bar {
+  position: absolute;
+  top: 27px; 
+  left: 50%; /* Center align the search bar */
+  transform: translateX(-50%); /* Offset by half its width to truly center it */
+  display: flex;
+  z-index: 5; /* Ensure it's above the map */
+  background-color: #fff; /* White background to match Google Maps */
+  border: 1px solid #ddd; /* Subtle border to match Google Maps style */
+  border-radius: 2px; /* Slightly rounded corners */
+  padding: 5px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2); /* Simple shadow to match Google Maps buttons */
+  font-family: 'Roboto', 'Arial', sans-serif; /* Consistent with Google Maps */
+}
+
+.search-bar input {
+  border: none;
+  padding: 8px 10px;
+  width: 300px; /* Width can be adjusted as needed */
+  font-size: 15px; /* Match font size with Google Maps search bar */
+}
+
+.search-bar button {
+  background-color: #4285F4; /* Google blue color for consistency */
+  color: white;
+  border: none;
+  padding: 8px 10px;
+  cursor: pointer;
+  font-size: 15px; /* Consistent font size with Google Maps */
+}
+
+.distance-toggle {
+  margin-right: 5px;
+}
+
+.search-mode-toggle {
+  margin-right: 5px;
+}
+
+.search-input {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.dropdown-button {
+  margin-right: 5px;
+}
+
+.dropdown-content {
+  position: absolute;
+  top: 100%; /* Align the top of the dropdown with the bottom of the button */
+  left: 0;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  z-index: 100; /* Ensures the dropdown appears above other content */
+  padding-left: 10px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  width: 166px;
+}
+
+.dropdown-content label {
+  display: flex;
+  align-items: center; /* Vertically centers the checkbox and text */
+  padding: 5px 10px;
+  margin-left: -10; /* Removes default margins */
+}
+
+.dropdown-content input[type="checkbox"] {
+  margin-right: -130px;
+  margin-left: -150px;
+}
