@@ -1,0 +1,8 @@
+__pycache__/
+
+accessify_venv/
+
+.env
+
+# Flask file
+instance/
