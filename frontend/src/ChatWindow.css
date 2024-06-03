@@ -49,6 +49,7 @@
   word-wrap: break-word;      /* Ensures words break to prevent overflow */
   white-space: normal;        /* Allows text to wrap within the container */
   box-sizing: border-box;  
+  white-space: 'pre-wrap';
 }
 
 .user-message {

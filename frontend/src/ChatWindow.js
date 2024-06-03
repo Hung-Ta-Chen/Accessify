@@ -1,4 +1,4 @@
-import { React, useState, useEffect, useContext } from "react";
+import { React, useState, useEffect, useContext, useCallback } from "react";
 import "./ChatWindow.css";
 import MapContext from "./MapContext";
 
@@ -28,17 +28,44 @@ function ChatWindow({ handleClose, isActive }) {
     setConversationID(data.conversation_id);
   };
 
-  useEffect(() => {
-    const startSession = async () => {
-      const response = await fetch(`${SERVER_URL}/chatbot/session/start`, {
+  const endConversation = useCallback(async (conversation_id) => {
+    if (conversation_id) {
+      await fetch(`${SERVER_URL}/chatbot/conversation/end`, {
         method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ conversation_id }),
       });
-      const data = await response.json();
-      setSessionID(data.session_id);
-      startConversation(data.session_id);
-    };
-    startSession();
+    }
+    setConversationID("");
   }, []);
+
+  const startSession = useCallback(async () => {
+    const response = await fetch(`${SERVER_URL}/chatbot/session/start`, {
+      method: "POST",
+    });
+    const data = await response.json();
+    setSessionID(data.session_id);
+    startConversation(data.session_id);
+  }, []);
+
+  const endSession = useCallback(async (session_id) => {
+    if (session_id) {
+      await fetch(`${SERVER_URL}/chatbot/session/end`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ session_id }),
+      });
+    }
+    setSessionID("");
+  }, []);
+
+  useEffect(() => {
+    if (isActive) {
+      startSession();
+    } else {
+      endSession();
+    }
+  }, [isActive, startSession, endSession]);
 
   // Function for sending a new message
   const sendMessage = async (event) => {
@@ -50,7 +77,7 @@ function ChatWindow({ handleClose, isActive }) {
         text: newMessage,
         timestamp: new Date(),
       };
-      setMessages([...messages, newMessageObj]);
+      setMessages((prevMessages) => [...prevMessages, newMessageObj]);
       setNewMessage(""); // Clear input box
 
       /* The part for sending the message list to the backend */
@@ -90,7 +117,8 @@ function ChatWindow({ handleClose, isActive }) {
 
   const handleCloseWindow = () => {
     handleClose();
-    /*
+    endConversation(conversationID);
+    endSession(sessionID);
     setMessages([
       {
         id: 0,
@@ -99,7 +127,6 @@ function ChatWindow({ handleClose, isActive }) {
         timestamp: new Date(),
       },
     ]); // Clear all the messages
-    */
   };
 
   return (

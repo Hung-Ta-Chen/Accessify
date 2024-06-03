@@ -38,7 +38,7 @@ def fetch_place_details(place_name):
     return details
 
 
-def fetch_vicinity_details(location, radius=10000, service_type='restaurant', k=20):
+def fetch_vicinity_details(location, radius=10000, service_type='', k=20):
     current_app.logger.info(
         f'location: {location}, service_type={service_type}')
     # Perform a nearby search for each type of service
