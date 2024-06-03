@@ -51,7 +51,7 @@ def classify_query(query):
 
 
 def get_query_response(query, context, lat, lng):
-    # Classy the query first
+    # Classify the query first
     type_details_json = classify_query(query)
     type_details = json.loads(type_details_json)
 
@@ -78,6 +78,7 @@ def get_query_response(query, context, lat, lng):
             if location:
                 place_location = f"{location[0]},{location[1]}"
             else:
+                # That's where the legendary rickroll MV was shot
                 place_location = f"51.512608,-0.219139"
         vicinity_details = fetch_vicinity_details(place_location, service_type)
         prompt = PromptTemplate.from_template(
@@ -94,7 +95,7 @@ def get_query_response(query, context, lat, lng):
             "You are an AI equipped to handle a wide range of queries." +
             "User asks: '{query}'." +
             "Additionally, here's the context of this conversation: '{context}'." +
-            "Give a proper response."
+            "Give a good and proper response based on the provided context."
         )
         completed_prompt = prompt.format(query=query, context=context)
 

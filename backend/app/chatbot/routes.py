@@ -1,7 +1,6 @@
 from flask import Blueprint, request, jsonify
 from datetime import datetime
 from .db_services import *
-# Assuming AI service functions are defined here
 from .ai_services import get_query_response
 
 chatbot_blueprint = Blueprint('chatbot_blueprint', __name__)
