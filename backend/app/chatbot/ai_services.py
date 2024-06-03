@@ -69,8 +69,8 @@ def get_query_response(query, context, lat, lng):
         completed_prompt = prompt.format(
             query=query, context=context, details=place_details, place_name=place_name)
     elif type_details['query_type'] == 'local_services':
-        service_type = type_details["details"]["service_type"]
-        place_name = type_details["details"]["place_name"]
+        service_type = type_details["details"].get("service_type", '')
+        place_name = type_details["details"].get("place_name", '')
         if place_name == "CURRENT_LOCATION":
             place_location = f"{lat},{lng}"
         else:
