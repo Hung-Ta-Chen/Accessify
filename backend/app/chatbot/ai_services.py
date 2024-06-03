@@ -79,7 +79,7 @@ def get_query_response(query, context, lat, lng):
                 place_location = f"{location[0]},{location[1]}"
             else:
                 # That's where the legendary rickroll MV was shot
-                place_location = f"51.512608,-0.219139"
+                place_location = "51.512608,-0.219139"
         vicinity_details = fetch_vicinity_details(place_location, service_type)
         prompt = PromptTemplate.from_template(
             "You are an AI specialized in providing information about local services." +
