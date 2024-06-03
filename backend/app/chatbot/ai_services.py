@@ -14,7 +14,7 @@ load_dotenv()
 OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY')
 
 embedder = OpenAIEmbeddings(
-    api_key=OPENAI_API_KEY, model="text-embedding-3-large")
+    api_key=OPENAI_API_KEY, model="text-embedding-3-large", max_tokens=1000)
 
 llm = OpenAI(model_name="gpt-3.5-turbo-instruct",
              openai_api_key=OPENAI_API_KEY)
@@ -70,7 +70,9 @@ def get_query_response(query, context, lat, lng):
             query=query, context=context, details=place_details, place_name=place_name)
     elif type_details['query_type'] == 'local_services':
         service_type = type_details["details"].get("service_type", '')
-        place_name = type_details["details"].get("place_name", '')
+        place_name = type_details["details"].get(
+            "place_name", 'Pokémon GO Lab.')
+        current_app.logger.info(f'Place name: {place_name}')
         if place_name == "CURRENT_LOCATION":
             place_location = f"{lat},{lng}"
         else:
@@ -78,8 +80,7 @@ def get_query_response(query, context, lat, lng):
             if location:
                 place_location = f"{location[0]},{location[1]}"
             else:
-                # That's where the legendary rickroll MV was shot
-                place_location = f"51.512608,-0.219139"
+                place_location = f"{lat},{lng}"
         vicinity_details = fetch_vicinity_details(place_location, service_type)
         prompt = PromptTemplate.from_template(
             "You are an AI specialized in providing information about local services." +
