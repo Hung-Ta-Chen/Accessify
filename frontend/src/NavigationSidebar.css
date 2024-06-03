@@ -1,0 +1,46 @@
+.navigation-sidebar {
+  width: 60px; /* Adjust the width as needed */
+  background-color:  #f8f8f8;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  z-index: 5;
+  padding-top: 30px;
+  box-sizing: border-box;
+  border-right: 1px solid #ddd; /* Subtle border to the right */
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1); /* Horizontal shadow to give depth */
+}
+
+.navigation-button {
+  background: none;
+  border: none;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 30px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: #5f6368;
+  padding: 8px; /* Spacing around icon for easier clicking */
+  outline: none; /* Removes the outline to match Google Maps style */
+  transition: background-color 0.15s ease-in-out; 
+}
+
+.navigation-button:hover {
+  background-color: #e0e0e0; 
+}
+
+.navigation-button.active{
+  color: #4285F4;
+}
+
+.navigation-button.active svg {
+  fill: #4285F4; 
+  transition: fill 0.15s ease-in-out;
+}
+
+

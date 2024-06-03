@@ -1,0 +1,80 @@
+/* Styles for the reviews content within the modal */
+.ReviewsModal__Overlay {
+    background-color: rgba(0, 0, 0, 0.75); /* Dim the background */
+    z-index: 1000; /* Higher than anything else in the app */
+}
+  
+.ReviewsModal__Content {
+    position: relative; /* Needed for absolute positioning of children */
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    transform: translate(-50%, -50%);
+    border: 1px solid #ccc;
+    background: #fff;
+    overflow: auto;
+    border-radius: 8px; /* Rounded corners */
+    outline: none;
+    padding: 20px;
+    width: 80%; /* Set a fixed width */
+    max-width: 600px; /* Limit the maximum width to 800px */
+    height: auto; /* Adjust height as necessary */
+    max-height: 80vh; /* Maximum height to ensure it fits in most screens */
+}
+
+.reviews-modal-content {
+    max-height: calc(90% - 60px); /* Suitable height for content scroll */
+    overflow-y: auto; /* Scrollbar for overflow content */
+    padding: 20px; /* Padding inside the modal content */
+    font-family: Roboto, Arial, sans-serif; /* Google's default font */
+    color: #333; /* Dark grey text for better readability */
+    border-radius: 8px;
+}
+
+.reviews-modal-content > h2 {
+    color: #4285F4;
+    padding: 0 10px 10px 10px;
+}
+
+/* Individual review container styles */
+.review {
+    border-bottom: 1px solid #e0e0e0; /* Light grey separator */
+    padding: 15px; /* Padding around review content */
+    margin-bottom: 15px; /* Spacing between reviews */
+    background-color: #f5f5f5; /* Slight grey background for each review */
+    border-radius: 4px; /* Rounded corners for each review block */
+}
+
+.review-header {
+    margin-bottom: 10px; /* Space between header and comment */
+}
+
+.username, .ratings {
+    font-weight: bold; /* Making username and ratings bold */
+    color: #555; /* Darker grey for text */
+}
+
+.comments {
+    color: #666; /* Slightly lighter grey for comments to differentiate from headers */
+    font-style: italic; /* Italicize comments */
+}
+
+.reviews-modal-content > button {
+    position: absolute;  /* Positioning relative to the modal */
+    top: 10px;  /* Close to the top-right corner */
+    right: 10px; /* Margin from the right */
+    border: none;
+    background: none;
+    cursor: pointer;
+    width: 32px; /* Fixed size for the button */
+    height: 32px; /* Fixed size for the button */
+    display: flex; /* Aligns the icon nicely in the center */
+    align-items: center; /* Center the icon vertically */
+    justify-content: center; /* Center the icon horizontally */
+    padding: 0; /* Remove padding */
+}
+
+.reviews-modal-content > button:hover {
+    opacity: 0.8;
+  }

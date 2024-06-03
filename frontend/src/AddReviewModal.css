@@ -1,0 +1,61 @@
+.add-review-modal {
+    background: #fff; /* White background */
+    padding: 20px; /* Consistent padding */
+    border-radius: 8px; /* Rounded corners for the modal */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    font-family: 'Roboto', sans-serif; /* Google's font */
+    width: 450px;
+}
+  
+  .add-review-modal h2 {
+    color: #1a73e8; /* Google blue for headings */
+    font-size: 24px; /* Suitable heading size */
+    margin-bottom: 20px; /* Spacing below the heading */
+  }
+  
+  .add-review-modal select, 
+  .add-review-modal input, 
+  .add-review-modal textarea {
+    width: 100%; /* Full width within the modal */
+    padding: 8px; /* Adequate padding */
+    border: 1px solid #dfe1e5; /* Subtle border similar to Google's style */
+    border-radius: 4px; /* Rounded corners */
+    margin-bottom: 15px; /* Spacing between fields */
+    box-sizing: border-box; /* Include padding and border in the width */
+  }
+  
+  .add-review-modal textarea {
+    margin-bottom: 45px; /* Spacing between fields */
+    height: 120px; /* Fixed height for text area */
+  }
+  
+  /* Button styles */
+  .add-review-modal .form-actions {
+    display: flex; /* Flexbox for alignment */
+    justify-content: flex-end; /* Align buttons to the right */
+  }
+  
+  .add-review-modal button {
+    padding: 10px 20px; /* Comfortable padding */
+    border: none;
+    border-radius: 4px; /* Rounded corners */
+    background-color: #1a73e8; /* Google blue for primary action */
+    color: white; /* White text */
+    font-weight: bold; /* Bold font for button text */
+    margin-left: 10px; /* Space between buttons */
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+  }
+  
+  .add-review-modal button:hover {
+    background-color: #357ae8; /* Slightly darker on hover */
+  }
+  
+  .add-review-modal button[type="button"] {
+    background-color: #f1f3f4; /* Light grey for cancel button */
+    color: #202124; /* Almost black for text */
+  }
+  
+  .add-review-modal button[type="button"]:hover {
+    background-color: #e8eaed; /* Slightly darker grey on hover */
+  }
