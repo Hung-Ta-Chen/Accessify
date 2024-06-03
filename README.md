@@ -16,7 +16,7 @@ Accessify is a map-based accessibility application designed to help users find a
 ### Prerequisites
 
 - Node.js and npm
-- Python 3.x and pip
+- Python 3.11 and pip
 - PostgreSQL
 - MongoDB Atlas account
 - Google Maps API key
