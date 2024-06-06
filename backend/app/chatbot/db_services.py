@@ -112,3 +112,15 @@ def get_all_query_logs():
     """Retrieve all logs"""
     db = get_db()
     return list(db.user_queries_log.find())
+
+
+def save_place_details(place_detail):
+    db = get_db()
+
+    if db.place_details.count_documents({'place_id': place_detail['place_id']}) == 0:
+        db.place_details.insert_one(place_detail)
+        current_app.logger.info(
+            f"Place details for {place_detail['name']} saved in db.")
+    else:
+        current_app.logger.info(
+            f"Place details for {place_detail['name']} already exists.")
