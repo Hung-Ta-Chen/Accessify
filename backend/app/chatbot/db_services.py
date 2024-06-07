@@ -124,3 +124,8 @@ def save_place_details(place_detail):
     else:
         current_app.logger.info(
             f"Place details for {place_detail['name']} already exists.")
+
+
+def get_all_places():
+    db = get_db()
+    return list(db.place_details.find({}))

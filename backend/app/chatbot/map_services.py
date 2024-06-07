@@ -104,18 +104,7 @@ def fetch_vicinity_details(location, radius=10000, service_type='', k=20):
         save_place_details(details)
 
         # Append some general details to the result list
-        places.append({
-            "name": place_details.get('name'),
-            "address": place_details.get('vicinity'),
-            "rating": place_details.get('rating', -1),
-            "place_id": place_details.get('place_id'),
-            "open_now": place_details.get('opening_hours', {}).get('open_now', False),
-            "status": place_details.get("business_status"),
-            "wheelchair_accessible_entrance": place_details.get("wheelchair_accessible_entrance", False),
-        })
-
-        if len(places) >= k:
-            break
+        places.append(details)
 
     return places
 
@@ -127,3 +116,15 @@ def geocode(place_name):
         return None  # No geocode results
     location = geocode_result[0]['geometry']['location']
     return (location['lat'], location['lng'])
+
+
+def place_name_to_code(place_name, lat, lng):
+    if place_name == "CURRENT_LOCATION":
+        place_location = f"{lat},{lng}"
+    else:
+        location = geocode(place_name)
+        if location:
+            place_location = f"{location[0]},{location[1]}"
+        else:
+            place_location = f"{lat},{lng}"
+    return place_location

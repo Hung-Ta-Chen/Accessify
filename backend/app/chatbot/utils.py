@@ -28,6 +28,8 @@ def format_document_text(place):
         attributes.append("Vegetarian options are available.")
     if place.get("serve_alcohol", False):
         attributes.append("Alcoholic beverages are served.")
+    if place.get("vicinity", False):
+        attributes.append(f"Near {place['vicinity']}")
 
     # Combine all parts into a single string
     full_description = " ".join(descriptions + attributes).strip()
