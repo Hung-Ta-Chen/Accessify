@@ -91,8 +91,12 @@ function ChatWindow({ handleClose, isActive }) {
             text: newMessageObj.text,
             context:
               messages.length >= 3
-                ? `user: ${messages[messages.length - 3].text} ` +
-                  `ai: ${messages[messages.length - 2].text}`
+                ? `user: ${
+                    messages[messages.length - 3].text.substring(0, 100) + "..."
+                  } ` +
+                  `ai: ${
+                    messages[messages.length - 2].text.substring(0, 100) + "..."
+                  }`
                 : "",
             lat: userLocation.lat,
             lng: userLocation.lng,
