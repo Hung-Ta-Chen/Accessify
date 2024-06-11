@@ -20,10 +20,9 @@ embedder = OpenAIEmbeddings(
 llm = OpenAI(model_name="gpt-3.5-turbo-instruct",
              openai_api_key=OPENAI_API_KEY, max_tokens=1000)
 
-# Create FAISS index
-
 
 def initalize_faiss_index():
+    '''Initialize FAISS index'''
     places = list(get_all_places())
     texts = [format_document_text(place) for place in places]
     place_faiss_index = FAISS.from_texts(texts, embedder)
